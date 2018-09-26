@@ -121,7 +121,7 @@ spaces: {out_spaces}.
     set_xfm_source = pe.Node(ConcatenateLTA(out_type='RAS2RAS'), name='set_xfm_source')
 
     sampler = pe.MapNode(
-        fs.SampleToSurface(sampling_method='average', sampling_range=(0, 1, 0.2),
+        fs.SampleToSurface(sampling_method='point', sampling_range=(0.5),
                            sampling_units='frac', interp_method='trilinear', cortex_mask=True,
                            override_reg_subj=True, out_type='gii'),
         iterfield=['source_file', 'target_subject'],
